@@ -26,12 +26,6 @@
     var fw = firmware || (!isPS4 ? preview : null);
     var outsideRange = fw && !inRange(fw);
     selected = routeFor(fw);
-    text('device-label', isPS4 ? 'PlayStation 4' : 'معاينة الواجهة');
-    text('firmware', firmware || (isPS4 ? '—' : 'PS4'));
-    text('version-label', firmware ? 'إصدار النظام' : (isPS4 ? 'تعذّرت قراءة الإصدار' : 'افتح من جهازك للتشغيل'));
-    text('device-state', isPS4 ? (selected ? 'تم التعرف على الجهاز' : 'لا يوجد مسار مطابق') : 'متصفح آخر');
-    el('device-state').className = 'badge' + (isPS4 ? (selected ? ' detected' : ' unsupported') : '');
-    text('device-note', isPS4 ? (firmware ? 'طابق الرقم مع معلومات النظام قبل التشغيل.' : 'ما گدرنا نقرأ إصدار النظام. افتح الصفحة من متصفح PS4 الأصلي.') : 'هذه معاينة من هاتف أو كمبيوتر. اختيار إصدار هنا لا يعدّل أي جهاز.');
     el('desktop-preview').hidden = isPS4;
     text('route-title', selected ? selected.name : (outsideRange ? 'خارج نطاق الموقع' : 'الإصدار غير مدرج'));
     text('route-status', selected ? selected.status : 'التشغيل غير متاح');
@@ -52,12 +46,6 @@
     window.location.assign(target.url);
   });
   window.addEventListener('pageshow',function () { launching = false; text('action-message',''); render(); });
-  el('help-toggle').addEventListener('click', function () {
-    var expand = this.getAttribute('aria-expanded') !== 'true';
-    this.setAttribute('aria-expanded',expand ? 'true' : 'false');
-    el('help').hidden = !expand;
-    this.querySelector('span').textContent = expand ? '−' : '+';
-  });
   document.addEventListener('keydown', function (event) {
     var key = event.keyCode || event.which;
     if (key !== 38 && key !== 40) return;
