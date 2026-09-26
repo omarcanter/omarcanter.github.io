@@ -1,7 +1,7 @@
-# OMAR CANTER — عمر سنتر
+# OMAR CENTER — عمر سنتر
 
 Self-contained static PS4 host. Upload the contents of this directory to the root
-of omarcanter/omarcanter.github.io (main branch). Pages: main / root.
+of omarcenter/omarcenter.github.io (main branch). Pages: main / root.
 Launch stays on the same origin at host/index.html. No iframe or external loader.
 The package includes the selected upstream scripts, patch files, and payload.
 
